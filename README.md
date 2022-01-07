@@ -8,7 +8,7 @@ En otras palabras, son seis scripts con los procedimientos y funciones necesario
 Para ejecutar el programa se debe descargar (o clonar) la carpeta del simulador con los siguientes archivos (todos en la misma carpeta):
 Aleatorio.oz, LexerParser.oz, Interpreter.oz, NtccSimulator.oz, TreeBuilder.oz y TextEditor.oz.
 Una vez descargados los archivos en la misma carpeta, abrir TextEditor.oz y ejecutarlo con la opción Feed Buffer en el Emacs.
-Inmediatamente se abrirá un editor de texto básico que reconoce el lenguaje ntcc. Aquí podrá escribir código ntcc y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
+Inmediatamente se abrirá un editor de texto básico que reconoce el lenguaje ntcc. Aquí podrá cargar de un archivo o escribir el código ntcc que desee y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
 
 
 Por venir...
