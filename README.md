@@ -14,6 +14,7 @@ La herramienta de simulación está conformada por seis archivos .oz no compilad
 - Un simulador ntcc que recoge la salida del intérprete y ejecuta las simulaciones;
 - Un editor de texto elemental que actúa también como la interfaz gráfica del sistema y
 - Una aplicación que dibuja el árbol de derivación del código que será simulado.
+
 En otras palabras, son seis scripts con los procedimientos y funciones necesarios para correr el simulador.
 
 Aunque aquí se habla del lenguaje ntcc, debe entenderse que el ntcc no es un lenguaje de programación con todo lo que ello implica. El ntcc es un cálculo de procesos o lenguaje mínimo que permite la descripción temporal de procesos concurrentes, no deterministas, a partir de información parcial, como la contenida en una desigualdad.
