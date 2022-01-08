@@ -5,7 +5,7 @@ Autor: Rodrigo Botero Ibarra
 
 Sin más pretensiones que la de aprender, propongo esta versión particular de simulador para el cálculo de procesos ntcc (non-deterministic temporal concurrent constraint). Esta herramienta está escrita completamente en Mozart-Oz. No se trata de un trabajo riguroso, tampoco único, es solo un ejercicio académico que, como tal, puede estar sujeto a errores.
 
-Características:
+##### Características:
 
 La herramienta de simulación está conformada por seis archivos .oz no compilados, que corresponden a los seis módulos siguientes:
 - Un generador de aleatorios básico y un poco rudimentario;
@@ -27,7 +27,7 @@ Con el editor se pueden abrir archivos de texto con programas ntcc previamente g
 
 Usted puede simular los programas que desee, las veces que quiera, solo recuerde que el Browser queda activo desde la primera vez que se ejecuta una simulación, a menos que se cierre el editor, esto termina todas las ejecuciones y limpia la memoria. Se recomienda realizar de vez en cuando esta última acción (cerrar el editor después de guardar los cambios), si el simulador corre en una máquina vieja.
 
-Limitaciones:
+##### Limitaciones:
 
 Esta herramienta de simulación ofrece funcionalidades limitadas a lo estrictamente necesario para ejecutar código basado en el cálculo ntcc. Para poner las expectativas en contexto, se mencionarán algunas de las limitaciones de esta herramienta.
 
@@ -43,14 +43,16 @@ Como ya se mencionó, el simulador solo reconoce dominios finitos y esta es una 
 
 La herramienta de simulación tampoco soporta la verificación de los programas ntcc, esta podría incluirse en un futuro.
 
-Descarga y ejecución:
+##### Descarga y ejecución:
 
 Para ejecutar el programa primero asegúrese de tener instalado Mozart 1.4.0 y Oz 3, preferiblemente. Luego, se debe descargar (o clonar) la carpeta del simulador con los siguientes archivos (todos en la misma carpeta): Aleatorio.oz, LexerParser.oz, Interpreter.oz, NtccSimulator.oz, TreeBuilder.oz y TextEditor.oz.
 Una vez descargados los archivos en una misma carpeta, abrir TextEditor.oz en el Emacs y ejecutarlo con la opción Feed Buffer. Inmediatamente se abrirá el editor de texto ya mencionado. Aquí podrá escribir el código ntcc que desee o cargarlo desde archivo y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
 
-Licencia:
+##### Licencia:
 
 El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia BSD es suficiente. Téngase en cuenta que el software aquí presente es un ejercicio puramente académico, puede contener errores, y por lo tanto el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso, directo o indirecto.
+
+##### Bibliografía
 
 
 En construcción...
