@@ -54,5 +54,7 @@ El conjunto de archivos que componen el simulador son de libre uso y libres de c
 
 #### Bibliografía
 
+#### Agradecimientos
+
 
 En construcción...
