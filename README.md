@@ -21,7 +21,27 @@ Aunque aquí se habla del lenguaje ntcc, debe entenderse que el ntcc no es un le
 
 Para que el sistema de simulación funcione correctamente, debe especificarse desde el principio un dominio para las variables. Este dominio, que es el sistema de restricciones que usará el simulador, no se puede cambiar (por ahora) y está restringido a los dominios finitos. Esto significa que las simulaciones solo se pueden ejecutar usando números naturales, incluyendo el cero. El valor mínimo que se puede asignar a una variable es cero y el máximo está dado por el máximo número natural o entero positivo que soporta la versión de Mozart-Oz usada para ejecutar la aplicación.
 
-El editor de texto del sistema intenta recrear las mismas coloraciones de las palabras reservadas que emplea el Emacs cuando se está ejecutando el Mozart, aunque con algunas pequeñas diferencias: todas las palabras reservadas, comentarios y símbolos especiales (diferentes a los de agrupación) aparecen, no solo coloreados según el grupo al que pertencen, sino tambien resaltados en "negrilla" (mayor grosor de la letra). Solo las funciones de cortar, copiar y pegar texto están disponibles; no se puede deshacer una operación, tampoco soporta la búsqueda de palabras, ni permite la identación automática, esta se hace manualmente aunque no es necesaria. Más adelante se verán otras características del editor de texto.
+El editor de texto del sistema intenta recrear las mismas coloraciones de las palabras reservadas que emplea el Emacs cuando se está ejecutando el Mozart, aunque con algunas pequeñas diferencias: todas las palabras reservadas, comentarios y símbolos especiales (diferentes a los de agrupación) aparecen, no solo coloreados según el grupo al que pertencen, sino tambien resaltados en "negrilla" (mayor grosor de la letra). Solo las funciones de cortar, copiar y pegar texto están disponibles. También existe una opción para limpiar las ventanas en caso de querer empezar desde cero.
+
+Con el editor se pueden abrir archivos de texto con programas ntcc previamente guardados, también modificarlos y guardarlos. Asimismo, los resultados de las simulaciones se pueden guardar en formato texto y los resultados guardados se pueden abrir en la ventana principal. También existe una opción para visualizar los árboles sintácticos de las simulaciones.
+
+Usted puede simular los programas que desee, las veces que quiera, solo recuerde que el Browser queda activo desde la primera vez que se ejecuta una simulación, a menos que se cierre el editor, esto termina todas las ejecuciones y limpia la memoria. Se recomienda realizar de vez en cuando esta última acción (cerrar el editor), si el simulador corre en una máquina vieja.
+
+Limitaciones:
+
+Esta herramienta de simulación ofrece funcionalidades limitadas a lo estrictamente necesario para ejecutar código basado en el cálculo ntcc. Para poner las expectativas en contexto, se mencionarán algunas de las limitaciones de esta herramienta.
+
+Con el editor de texto no se puede deshacer una acción, tampoco soporta la búsqueda de palabras, ni permite la identación automática, esta se hace manualmente aunque no es necesaria para la correcta ejecución de los programas ntcc. El editor no reconoce los cambios hechos en el archivo, ni guarda automáticamente. Para guardar algún cambio en algún archivo simplemente hay que guardarlo de nuevo con el mismo nombre. No existe la opción de impresión, para imprimir se abre el archivo de texto con otro editor o procesador de texto y se imprime desde allí.
+
+Aunque las siguientes palabras resevadas son reconocidas por el editor, el simulador, sin embargo, no reconoce ni ejecuta las instrucciones que de ellas derivan. Estas son: 'fun', 'lazy', 'if', 'then', 'else', 'and' y 'or'. Estas operaciones podrían ser incluidas en un futuro.
+
+El constructor del árbol de derivación es un tanto ineficiente, en cuanto que el tiempo para calcular y dibujar cada árbol crece exponencialmente. Por este motivo no se recomienda su uso en el caso de simulaciones muy grandes. Adicionalmente, el árbol tampoco se puede guardar como imagen, esto se debe hacer por medio de una captura de pantalla.
+
+Todavía no existe una herramienta para la visualización de los resultados que, por el momento, se muestran como listas de variables con sus respectivos valores finales.
+
+Como ya se mencionó, el simulador solo reconoce dominios finitos y esta es una gran desventaja. En un futuro se podría estudiar la posibilidad de incluir otros dominios soportados por Mozart-Oz.
+
+La herramienta de simulación tampoco soporta la verificación de los programas ntcc, esta podría incluirse en un futuro.
 
 Descarga y ejecución:
 
