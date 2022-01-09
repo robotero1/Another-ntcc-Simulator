@@ -50,7 +50,7 @@ Una vez descargados los archivos en una misma carpeta, abrir `TextEditor.oz` en 
 
 #### Licencia:
 
-El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia `BSD` es suficiente. Téngase en cuenta que el software aquí presente es un ejercicio puramente académico, puede contener errores, y por lo tanto el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso, directo o indirecto.
+El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia `BSD` es suficiente. Téngase en cuenta que el software aquí presentado es un ejercicio puramente académico, puede contener errores, y por lo tanto el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso, directo o indirecto.
 
 #### Bibliografía:
 
