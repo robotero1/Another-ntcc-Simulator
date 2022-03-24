@@ -21,11 +21,11 @@ Aunque aquí se habla del lenguaje `ntcc`, debe entenderse que el `ntcc` no es u
 
 Para que el sistema de simulación funcione correctamente, debe especificarse desde el principio un dominio para las variables. Este dominio, que es el sistema de restricciones que usará el simulador, no se puede cambiar (por ahora) y está restringido a los dominios finitos. Esto significa que las simulaciones solo se pueden ejecutar usando números naturales, incluyendo el cero. El valor mínimo que se puede asignar a una variable es cero y el máximo está dado por el máximo número natural o entero positivo que soporta la versión de `Mozart-Oz` usada para ejecutar la aplicación.
 
-El editor de texto del sistema intenta recrear las mismas coloraciones de las palabras reservadas que emplea el `Emacs` cuando se está ejecutando el Mozart, aunque con una pequeña diferencia: todas las palabras reservadas, comentarios y símbolos especiales (diferentes a los de agrupación) aparecen, no solo coloreados según el grupo al que pertencen, sino tambien resaltados en "negrilla" (mayor grosor de la letra). Solo las funciones de cortar, copiar y pegar texto están disponibles. También existe una opción para limpiar las ventanas en caso de querer empezar desde cero.
+El editor de texto del simulador intenta recrear las mismas coloraciones de las palabras reservadas que emplea el `Emacs` cuando se está ejecutando el Mozart, aunque con una pequeña diferencia: todas las palabras reservadas, comentarios y símbolos especiales (diferentes a los de agrupación) aparecen, no solo coloreados según el grupo al que pertencen, sino tambien resaltados en "negrilla" (mayor grosor de la letra). Solo las funciones de cortar, copiar y pegar texto están disponibles. También existe una opción para limpiar las ventanas en caso de querer empezar desde cero.
 
 Con el editor se pueden abrir archivos de texto con programas `ntcc` previamente guardados, también modificarlos y guardarlos. Asimismo, los resultados de las simulaciones se pueden guardar en formato texto y los resultados guardados se pueden abrir en la ventana principal. También existe una opción para visualizar los árboles sintácticos de las simulaciones.
 
-Usted puede simular los programas que desee, las veces que quiera, solo recuerde que el `Browser` queda activo desde la primera vez que se ejecuta una simulación, a menos que se cierre el editor, esto termina todas las ejecuciones y limpia la memoria. Se recomienda realizar de vez en cuando esta última acción (cerrar el editor después de guardar los cambios), si el simulador corre en una máquina vieja.
+Usted puede simular los programas que desee, las veces que quiera, solo recuerde que el `Browser` queda activo desde la primera vez que se ejecuta una simulación, a menos que se cierre el editor; esto último termina todas las ejecuciones y limpia la memoria. Se recomienda realizar de vez en cuando esta acción (cerrar el editor después de guardar los cambios), máxime si el simulador corre en una máquina vieja.
 
 #### Limitaciones:
 
@@ -45,7 +45,8 @@ La herramienta de simulación tampoco soporta la verificación de los programas 
 
 #### Descarga y ejecución:
 
-Para ejecutar el programa primero asegúrese de tener instalado `Mozart 1.4.0` y `Oz 3`, preferiblemente. Luego, se debe descargar (o clonar) la carpeta del simulador con los siguientes archivos (todos en la misma carpeta): `Aleatorio.oz, LexerParser.oz, Interpreter.oz, NtccSimulator.oz, TreeBuilder.oz` y `TextEditor.oz`.
+Para ejecutar el programa primero asegúrese de tener instalado [Mozart 1.4.0 y Oz 3](https://mozart.github.io/
+), preferiblemente. Luego, se debe descargar (o clonar) la carpeta del simulador con los siguientes archivos (todos en la misma carpeta): `Aleatorio.oz, LexerParser.oz, Interpreter.oz, NtccSimulator.oz, TreeBuilder.oz` y `TextEditor.oz`.
 Una vez descargados los archivos en una misma carpeta, abrir `TextEditor.oz` en el `Emacs` y ejecutarlo con la opción `Feed Buffer`. Inmediatamente se abrirá el editor de texto ya mencionado. Aquí podrá escribir el código `ntcc` que desee o cargarlo desde archivo y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
 
 #### Licencia:
