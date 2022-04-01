@@ -57,7 +57,7 @@ El conjunto de archivos que componen el simulador son de libre uso y libres de c
 #### Bibliografía:
 - Valencia, (2002)
 - Olarte, Rueda y Valencia (2013)
-- Van Roy y Zaridy (XXXX)
+- Van Roy y Haridi (2004)
 - ...
 
 #### Agradecimientos:
