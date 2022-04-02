@@ -61,5 +61,5 @@ El autor agradece la ayuda de todos aquellos que le guiaron en la construcción 
 #### Bibliografía:
 1. Valencia, (2002)
 2. Olarte, Rueda y Valencia (2013)
-3. Van Roy y Haridi (2004)
+3. [Van Roy y Haridi (2004)](https://www.info.ucl.ac.be/~pvr/book.html)
 - ...
