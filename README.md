@@ -60,7 +60,7 @@ El conjunto de archivos que componen el simulador son de libre uso y libres de c
 
 #### Agradecimientos:
 
-El autor agradece la ayuda de todos aquellos que le guiaron en la construcción de este simulador. Especiales gracias a los profesores Mauricio Toro Bermúdez y Gerardo M. Sarria por sus aportes y guía en el desarrollo de este proyecto. También agradece a los profesores Camilo Rueda y Carlos Olarte que, en su momento, con sus comentarios y críticas, perfilaron el camino de este proyecto. El apoyo moral del profesor Ciro Jaramillo M., también fue vital para no desfallecer. Sobra mencionar también a mi hijo Santiago y a toda mi familia por su apoyo.
+El autor agradece la ayuda de todos aquellos que le guiaron en la construcción de este simulador. Especiales gracias a los profesores Mauricio Toro Bermúdez y Gerardo M. Sarria por sus aportes y guía en el desarrollo de este proyecto. También agradece a los profesores Camilo Rueda y Carlos Olarte que, en su momento, con sus comentarios y críticas, perfilaron el camino de este proyecto. El apoyo moral de la familia y del profesor Ciro Jaramillo M., también fue vital para no desfallecer.
 
 #### Bibliografía:
 
