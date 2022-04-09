@@ -9,7 +9,7 @@
 %-------------------------------------------------------------------%
 declare
 %-------------------------------------------------------------------%
-%% Adapted from the ntccSim simulator by Arbeláez & Gutierrez, 2006.
+%% Adapted from the ntccSim simulator by ArbelÃ¡ez & Gutierrez, 2006.
 %% Entrega un 'record' de variables con dominios finitos.
 proc {Raiz ListVar Limite V}
    proc {Limites R}
@@ -39,7 +39,7 @@ proc {Raiz ListVar Limite V}
    end     
 end
 %-------------------------------------------------------------------%
-%% Adapted from the simulator ntccSim by Arbeláez & Gutierrez, 2006.
+%% Adapted from the simulator ntccSim by ArbelÃ¡ez & Gutierrez, 2006.
 proc {CloneVars Rec R}
    R={Record.map Rec
       proc {$ X R} R=if {FD.is X} then {FD.int {FD.reflect.dom X}}
@@ -75,8 +75,8 @@ proc {FindProcc V L R}
      end
 end
 %===================================================================%
-%% Adapted from Schulte, 2000. Deref and Ask, pág. 103; Status, pág. 107;
-%% and the idea for Encapsulate, pág. 106.
+%% Adapted from Schulte, 2000. Deref and Ask, pÃ¡g. 103; Status, pÃ¡g. 107;
+%% and the idea for Encapsulate, pÃ¡g. 106.
 fun {CDeref X}
    case X of suspended(X) then {CDeref X} else X end
 end
@@ -290,7 +290,7 @@ proc {CPar Sc T P R} P0 P1 P2 P3 P4 P5 /*Pr*/ in
 			      end P2 P3}
       else skip
       end
-      if {Record.width P2}>0 then   % P1 for 'tell' and 'def' proccesses.
+      if {Record.width P2}>0 then   % P2 for 'tell' and 'def' proccesses.
 	 if {List.member abort
 	     {Record.foldR P2
 	      fun {$ X Xr} thread {DoAgent Sc T X} end|Xr end nil}}
@@ -338,10 +338,10 @@ proc {CPar Sc T P R} P0 P1 P2 P3 P4 P5 /*Pr*/ in
 end
 
 %-------------------------------------------------------------------%
-%% With R={CStar P}, the proccess P will eventually be executed once
-%% during the whole simulation time. If P==star(M P), then the proccess
+%% With R={CStar Sc T P}, the proccess P will eventually be executed once
+%% during the whole simulation time. If *P==star(M P), then the proccess
 %% P will eventually be executed once, anytime from the time unit M,
-%% inclusive. If P==star(M N P), with N>=M and Tsim>=N, the proccess P
+%% inclusive. If *P==star(M N P), with N>=M and Tsim>=N, the proccess P
 %% will eventually be executed once, anytime from the time unit M until
 %% the time unit N, inclusive. In any case, the simulation is terminated
 %% if no further proccesses remain to be executed in the subsequent
@@ -391,8 +391,8 @@ proc {CStar Sc T P R}
 end
 %-------------------------------------------------------------------%
 %% With R={CBang P}, the proccess P is executed every time unit.
-%% If P==bang(M P), then the proccess P is executed from the time unit M,
-%% inclusive. If P==bang(M N P), with N>=M and Tsim>=N, the proccess P
+%% If !P==bang(M P), then the proccess P is executed from the time unit M,
+%% inclusive. If !P==bang(M N P), with N>=M and Tsim>=N, the proccess P
 %% will be executed from the time unit M until the time unit N, inclusive.
 %% In any case, the simulation is terminated if no further proccesses
 %% remain to be executed in the subsequent time units or if the
@@ -711,13 +711,14 @@ proc {Simulate Vars Doms Tsim Proccs R} V D T
    {SimProc T Proccs} R={ReadableSol} {Q1.clear} {Q2.clear} {Q3.clear}
 end
 %===================================================================%
-%===================================================================%
 
+%===================================================================%
+% Changing the size of the buffer.
 %-------------------------------------------------------------------%
 %{Browser.object option(buffer size:500)}
 %{Browser.object option(display depth:500)}
 %-------------------------------------------------------------------%
-
+% Some examples:
 %-------------------------------------------------------------------%
 % % Run next two lines first for examples 1--4:
 % Vars=[a b c d] Doms=[20 30 40 50] Ts=10
@@ -738,7 +739,8 @@ end
 % {Browse {Space.merge {Space.clone S}}}
 % {Browse {Space.askVerbose S}}
 %-------------------------------------------------------------------%
-
+% More examples: just uncomment the Browse line and then feed the buffer (press Ctrl+. Ctrl+B)
+%-------------------------------------------------------------------%
 % % Example 4a: Using the operator 'hide' (local). Error: variable oculta no
 % % se puede ejecutar en otra unidad de tiempo. 'hide' solo funciona en la
 % % unidad de tiempo actual.
@@ -758,12 +760,12 @@ end
 % {Browse {Simulate [a b] [20 30] 5 hide(vars(a) par(tell('=='(var(a) int(5))) when('=<'(var(a) int(6)) tell('=<'(var(b) int(5))))))}}
 %-------------------------------------------------------------------%
 % % Example 4f: Using the operator 'hide' (local). Note que la segunda
-% % variable 'b', está oculta (es local), por lo que en el 'when' la
+% % variable 'b', estÃ¡ oculta (es local), por lo que en el 'when' la
 % % guarda '>='(var(b) int(0)) se cumple, ejecutandose el siguiente 'tell'.
 % {Browse {Simulate [a b c] [20 30 30] 5 par(when('>='(var(b) int(0)) tell('>='(var(b) int(5)))) hide(vars(b) when('>='(var(b) int(0)) tell('=<'(var(c) int(5))))))}}
 %-------------------------------------------------------------------%
 % % Example 4g: Using the operator 'hide' (local). Similar al ejemplo 4f.
-% % En este caso, como la segunda variable 'b' está oculta (es local), en
+% % En este caso, como la segunda variable 'b' estÃ¡ oculta (es local), en
 % % el 'when' que sigue la guarda '>='(var(b) int(5)) no se cumple; por
 % % lo tanto, el correspondiente 'tell' no se ejecuta.
 % {Browse {Simulate [a b c] [20 30 30] 5 par(when('>='(var(b) int(0)) tell('>='(var(b) int(5)))) hide(vars(b) when('>='(var(b) int(5)) tell('=<'(var(c) int(5))))))}}
@@ -975,10 +977,10 @@ end
 % % Example 28a: Using the operator 'tell'. Fallo.
 % {Browse {Simulate [x y] [20 20] 3 par(next(tell('<'(var(x) int(10)))) tell(bool('false')))}}
 %-------------------------------------------------------------------%
-% % Example 28b: Using the operator 'tell'. Omit no es una restricción.
+% % Example 28b: Using the operator 'tell'. Omit no es una restricciÃ³n.
 % {Browse {Simulate [a b c d] [20 30 40 50] 10 tell(omit)}}
 %-------------------------------------------------------------------%
-% % Example 28c: Using the operator 'tell'. Abort no es una restricción.
+% % Example 28c: Using the operator 'tell'. Abort no es una restricciÃ³n.
 % {Browse {Simulate [a b c d] [20 30 40 50] 10 tell(abort)}}
 %-------------------------------------------------------------------%
 % % Example 29: Using the operator 'bang'.
@@ -1051,6 +1053,7 @@ end
 % {Browse {Simulate [turn dir] [0#1 1#4] 10 par(bang(sum('=='(var(dir) int(1))#unless('=='(var(turn) int(1)) tell('=='(var(dir) int(2)))) '=='(var(dir) int(2))#unless('=='(var(turn) int(1)) tell('=='(var(dir) int(3)))) '=='(var(dir) int(3))#unless('=='(var(turn) int(1)) tell('=='(var(dir) int(4)))) '=='(var(dir) int(4))#unless('=='(var(turn) int(1)) tell('=='(var(dir) int(1)))))) tell('=='(var(dir) int(1))))}}
 %-------------------------------------------------------------------%
 % % Example 37c: Using 'bang' for recursion. Robot3 (Ejemplo ORV, 2013)
+% % Uncomment the next code and feed the buffer (press Ctrl+. Ctrl+B)
  % {Browse {Simulate [turn dir] [0#2 1#4] 10
  % 	 par(
  % 	    bang(
