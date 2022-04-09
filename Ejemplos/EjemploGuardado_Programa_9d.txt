@@ -1,9 +1,9 @@
 %% Programa de ntcc usando 'next'.
-%% En este caso, dado que la guarda a=<7 de t4 se cumple en la primera
-%% unidad de tiempo, la expresion b-4=15 deberia insertarse en la segunda
-%% unidad de tiempo debido al 'next' que antecede al 'tell' en t2. Pero
-%% en realidad esto no sucede, ya que las guardas se evaluan antes que los
-%% 'tell' y en el momento de evaluar t3 y t4 solo la guarda b>=0 se cumple.
+%% En este caso, dado que la guarda b>=0 es siempre 'true' en t3,
+%% t1 se ejecuta en la primera unidad de tiempo, permitiendo que
+%% la guarda a=<7 de t4 se cumpla en la primera unidad de tiempo
+%% tambien, entonces la expresion b-4=15 se inserta en la segunda
+%% unidad de tiempo debido al 'next' que antecede al 'tell' en t2.
 %% ?Que pasa si se modifica la guarda de t4 para que no dependa de t3?
 NtccSim
 begin
