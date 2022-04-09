@@ -1,0 +1,17 @@
+%% Programa de ntcc usando 'next'.
+%% En este caso, dado que la guarda a=<7 de t4 se cumple en la primera
+%% unidad de tiempo, la expresion b-4=15 deberia insertarse en la segunda
+%% unidad de tiempo debido al 'next' que antecede al 'tell' en t2. Pero
+%% en realidad esto no sucede, ya que las guardas se evaluan antes que los
+%% 'tell' y en el momento de evaluar t3 y t4 solo la guarda b>=0 se cumple.
+%% ?Que pasa si se modifica la guarda de t4 para que no dependa de t3?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 2
+in
+t1 = tell (2 * a < 15);
+t2 = next ( tell (b - 4 = 15));
+t3 = when ( b >= 0 ) do t1 ;
+t4 = when ( a =< 7 ) do t2 ;
+par (t3 t4)
+end

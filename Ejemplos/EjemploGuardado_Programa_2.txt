@@ -1,0 +1,10 @@
+%% Programa de ntcc usando 'tell'.
+%% Aqui tenemos dos procesos 'tell' separados por un punto y coma.
+%% Los procesos separados por punto y coma se ejecutan en paralelo.
+%% Note que los procesos antes del 'end' final no llevan punto y coma.
+NtccSim
+begin
+declare x y domain = [0#10 0#10] tsim = 1 in
+tell (x = 5);
+tell (y > 5)
+end

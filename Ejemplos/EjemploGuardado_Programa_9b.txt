@@ -1,0 +1,20 @@
+%% Programa de ntcc usando 'next'.
+%% En este ejemplo, la variable t1, definida como tell(2a<15), es
+%% invocada en la segunda expresion despues de tres 'next' consecutivos.
+%% En esta expresion, el 'next' mas externo envia a la segunda unidad de
+%% tiempo lo que tiene dentro del parentesis, que a su vez es otro 'next'.
+%% Este segundo 'next' envia a la tercera unidad de tiempo lo que tiene
+%% dentro del parentesis, que es otro 'next'. Este ultimo 'next', el mas
+%% interno, envia a la siguiente unidad de tiempo a t1. Lo que significa
+%% que en la cuarta unidad de tiempo se viene a ejecutar tell(2a<15).
+%% Recuerde que la expresion final no lleva punto y coma y es la que
+%% permite ejecutar todo el codigo antes de ella.
+%% ?Que pasa si el tiempo de simulacion se reduce a una cantidad positiva
+%% menor que 4?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 5
+in
+t1 = tell (2 * a < 15);
+next ( next ( next (t1)))
+end

@@ -1,0 +1,21 @@
+%% Programa de ntcc usando el operador 'bang' (!).
+%% Este es el operador para el comportamiento 'infinito' (dentro
+%% del limite de tiempo impuesto por 'tsim'). Todo proceso cubierto
+%% por este operador, se repite indefinidamente desde la primera
+%% unidad de tiempo hasta que se agote el tiempo de simulacion. Tambien
+%% es posible ejecutar el 'bang' desde una unidad de tiempo posterior
+%% al tiempo actual o ejecutar los procesos dentro del 'bang' entre
+%% dos limites de tiempo M y N, tales que 0<M=<N=<tsim. Estas dos
+%% ultimas versiones del operador se conocen como 'invariancia acotada'.
+%% Recuerde que una simulacion se termina cuando se agota el tiempo
+%% de simulacion o cuando la cola de procesos queda vacia.
+%% Descomente uno de los procesos del ejemplo y observe el resultado.
+%% ?Que observa? ?Que sucede cuando tsim<M o tsim<N?
+NtccSim
+begin
+declare a domain = [0#20] tsim = 10
+in
+bang ( tell (2 * a < 15))
+%bang (5 tell (2 * a < 15))
+%bang (5 8 tell (2 * a < 15))
+end

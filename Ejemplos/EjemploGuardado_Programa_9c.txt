@@ -1,0 +1,19 @@
+%% Programa de ntcc usando 'next'.
+%% En este ejemplo, la variable t1, definida como tell(2a<15), es
+%% invocada en la segunda expresion. En esta expresion, dentro del
+%% parentesis, el numero entero indica las unidades de tiempo que
+%% deben transcurrir desde la unidad de tiempo actual para que el proceso
+%% t1 se pueda ejecutar. Es decir, el tell(2a<15) se viene a ejecutar en
+%% la cuarta unidad de tiempo.
+%% Recuerde que la expresion final no lleva punto y coma y es la que
+%% permite ejecutar todo el codigo antes de ella.
+%% ?Que pasa si el tiempo de simulacion se reduce a una cantidad positiva
+%% menor que 4?
+%% ?Que sucede cuando se cambia el numero entero dentro del parentesis?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 5
+in
+t1 = tell (2 * a < 15);
+next (3 t1)
+end

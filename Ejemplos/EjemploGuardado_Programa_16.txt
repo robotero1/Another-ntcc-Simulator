@@ -1,0 +1,12 @@
+%% Programa de ntcc usando 'unless'.
+%% El operador 'unless' inserta en el almacen la restriccion y=5
+%% en la siguiente unidad de tiempo solo si no se puede inferir en
+%% la unidad de tiempo actual la guarda x<10.
+%% Recuerde que una restriccion puede ser una igualdad o una desigualdad.
+%% Trate que las restricciones sean lo mas sencillas posible.
+%% ?Que pasa si 'tsim' es menor o mayor que 2?
+NtccSim
+begin
+declare x y domain = [0#20 0#20] tsim = 2 in
+unless (x < 10) next tell (y = 5)
+end

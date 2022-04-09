@@ -1,0 +1,16 @@
+%% Programa de ntcc usando 'async'.
+%% Este es el operador para la composicion paralela asincrona.
+%% Dados dos procesos P1 y P2, el operador puede ejecutar uno
+%% de los dos procesos en la misma unidad de tiempo o ejecutar
+%% un proceso en una unidad de tiempo y el otro proceso en una
+%% unidad de tiempo posterior. Bajo este operador todos los
+%% procesos eventualmente seran ejecutados.
+%% Corra el siguiente programa varias veces y observe los
+%% resultados. ?Que nota? Ahora cambie el tiempo de simulacion
+%% 'tsim' y observe lo que sucede.
+NtccSim
+begin
+declare x y z domain = [0#10 0#10 0#10] tsim = 3
+in
+async ( tell (x - 1 == 3) tell (y >= 4) tell (z < 7))
+end

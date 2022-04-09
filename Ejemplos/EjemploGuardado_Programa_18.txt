@@ -1,0 +1,18 @@
+%% Programa de ntcc usando 'unless'.
+%% Este ejemplo es una variacion del ejemplo 17. Ahora la variable
+%% 'y' queda oculta en la siguiente unidad de tiempo, entonces
+%% el operador 'unless' insertara en el almacen la restriccion y=5 en
+%% la siguiente unidad de tiempo solo si no se puede inferir en
+%% la unidad de tiempo actual la guarda x<10. Pero esta variable 'y'
+%% es diferente de la variable 'y' en el 'when'. Asi que, en la
+%% siguiente unidad de tiempo, la asignacion y=5 no tendra ningun
+%% efecto sbre la variable global y la restriccion x<10 no se podra
+%% agregar al almacen. Compare el resultado de este ejemplo con el 17.
+%% Recuerde que una restriccion puede ser una igualdad o una desigualdad.
+%% Trate que las restricciones sean lo mas sencillas posible.
+NtccSim
+begin
+declare x y domain = [0#20 0#20] tsim = 2 in
+unless (x < 10) next hide (y tell (y = 5));
+next ( when (y == 5) do tell (x < 10))
+end

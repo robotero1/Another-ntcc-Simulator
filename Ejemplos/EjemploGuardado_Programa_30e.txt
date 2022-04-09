@@ -1,0 +1,85 @@
+%% Programa de ntcc: Automata. Adapatacion de los ejemplos 30c y 30d,
+%% basados, a su vez, en una adaptacion del ejemplo 4 presentado
+%% en "Models and Emerging Trends of Concurrent Constraint Programming"
+%% por Carlos Olarte, Camilo Rueda y Frank D. Valencia, Springer Verlag,
+%% 2013. Suponga ahora que, por cada unidad de tiempo, el automata se
+%% mueve segun la variable 'dist' en la direccion indicada cada vez
+%% que recibe una senal del ambiente que le indica cuando y hacia donde
+%% debe girar. Asi pues, la variable 'turn', que puede tomar los valores
+%% 0, 1 o 2, determina si el automata tiene que girar a la derecha
+%% (turn=1), a la izquierda (turn=2) o no girar (turn=0). Suponga que
+%% el automata gira o no de acuerdo con alguna regla de transicion
+%% interna no-determinista, quedando en una de las posibles direcciones
+%% dada por la variable 'dir'. Si dir=1, la direccion correspondiente es
+%% Norte; cuando dir=2, es Este; cuando dir=3, Sur y para dir=4, Oeste (W).
+%% A diferencia del ejemplo 30d, el automata solo se movera cuando la
+%% variable 'move' es move=1, de la siguiente manera: si en la unidad de
+%% tiempo actual dist=0, entonces se avanzara una casilla o unidad de
+%% longitud en la siguiente unidad de tiempo, quedando dist=1. Si en
+%% la unidad de tiempo actual dist=1, el automata podra moverse cero,
+%% una o dos casillas, quedando dist=0, dist=1 o dist=2 en la siguiente
+%% unidad de tiempo. Si en la unidad de tiempo actual dist=2, se avanzara
+%% o una o dos casillas en la siguiente unidad de tiempo, quedando dist=1
+%% o dist=2. Por el contrario, si en la unidad de tiempo actual la variable
+%% 'move' es move=0, entonces el automata no se movera en la siguiente
+%% unidad de tiempo, quedando dist=0. Recuerde que todas las elecciones
+%% gobernadas por el operador 'sum' son no-deterministas.
+%% Ejecute el siguiente codigo varias veces y observe los resultados en
+%% cada ocasion.
+NtccSim
+begin
+declare turn move dir dist domain = [0#2 0#1 1#4 0#2] tsim = 100
+in
+robot = bang (
+	      par (
+		   when (turn > 0) do
+			 sum ( when (turn == 1) do
+				     sum ( when (dir == 1) do
+						 next ( tell (dir = 2))
+	      				   when (dir == 2) do
+						 next ( tell (dir = 3))
+	      				   when (dir == 3) do
+						 next ( tell (dir = 4))
+	      				   when (dir == 4) do
+						 next ( tell (dir = 1)))
+			       when (turn == 2) do
+				     sum ( when (dir == 1) do
+						 next ( tell (dir = 4))
+	      				   when (dir == 4) do
+						 next ( tell (dir = 3))
+	      				   when (dir == 3) do
+						 next ( tell (dir = 2))
+	      				   when (dir == 2) do
+						 next ( tell (dir = 1))))
+		   when (turn == 0) do
+			 sum ( when (dir == 1) do next ( tell (dir = 1))
+			       when (dir == 2) do next ( tell (dir = 2))
+			       when (dir == 3) do next ( tell (dir = 3))
+	      		       when (dir == 4) do next ( tell (dir = 4)))
+		   when (move == 0) do next ( tell (dist = 0))
+		   when (move == 1) do
+			 sum ( when (dist == 0) do next ( tell (dist = 1))
+			       when (dist == 1) do
+				     sum ( when ( true ) do
+						  next ( tell (dist = 0))
+					   when ( true ) do
+						  next ( tell (dist = 1))
+					   when ( true ) do
+						  next ( tell (dist = 2)))
+			       when (dist == 2) do
+				     sum ( when ( true ) do
+						  next ( tell (dist = 1))
+					   when ( true ) do
+						  next ( tell (dist = 2))))
+		   sum ( when ( true ) do next ( tell (move = 0))
+	      		 when ( true ) do next ( tell (move = 1)))
+		   sum ( when ( true ) do next ( tell (turn = 0))
+	      		 when ( true ) do next ( tell (turn = 1))
+	      		 when ( true ) do next ( tell (turn = 2)))));
+%% Condiciones iniciales:
+tell (dir = 1);
+tell (dist = 0);
+tell (move = 1);
+tell (turn = 0);
+robot
+end

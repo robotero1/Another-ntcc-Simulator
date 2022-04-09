@@ -1,0 +1,13 @@
+%% Programa de ntcc usando 'sum'.
+%% Similar a los ejemplos 25a y 25b, haciendo explicito el operador
+%% paralelo. Recuerde que par(sum(0) P)==par(P sum(0))==P, en otras
+%% palabras, el amacen no se modifica con 'omit' o sum(0).
+%% Corra el presente programa tal como esta, observe el resultado.
+%% Ahora comente (2) y descomente (3) y observe el resultado.
+NtccSim
+begin
+declare a domain = [0#20] tsim = 2 in
+par ( next ( tell (2 * a < 15))  	% (1) Adiciona 2*a<15 al almacen.
+      sum (0))			        % (2) No hace nada.
+%      omit )			        % (3) No hace nada.
+end

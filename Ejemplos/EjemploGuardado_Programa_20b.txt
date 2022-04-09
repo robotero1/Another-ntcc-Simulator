@@ -1,0 +1,10 @@
+%% Programa de ntcc usando el operador 'bang' (!).
+%% Ahora ejecute este otro ejemplo y observe el resultado.
+%% ?Que observa?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 10
+in
+bang ( when (b =< 7) do tell (2 * a < 15));
+bang (5 tell (2 * b < 15))		% Tiene efecto en la unidad de tiempo 5.
+end

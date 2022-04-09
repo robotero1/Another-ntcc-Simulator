@@ -1,0 +1,16 @@
+%% Programa de ntcc usando 'next'.
+%% En este caso, la guarda a=<7 de t4 no se cumple en la primera
+%% unidad de tiempo, por lo tanto, la expresion b-4=15 no se ejecuta
+%% en ninguna unidad de tiempo. Como b>=0, en t3, se cumple en la
+%% primera unidad de tiempo, t1 se ejecuta en la segunda unidad
+%% de tiempo debido al 'next' que le antecede en t3.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 4
+in
+t1 = tell (2 * a < 15);
+t2 = next ( tell (b - 4 = 15));
+t3 = when ( b >= 0 ) do next (t1);
+t4 = when ( a =< 7 ) do next (t2);
+par (t3 t4)
+end

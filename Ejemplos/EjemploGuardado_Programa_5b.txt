@@ -1,0 +1,14 @@
+%% Programa de ntcc usando 'when'.
+%% Esta es una variacion del ejemplo 5a. Recuerde que el operador
+%% 'when' pregunta al almacen si se puede deducir la guarda. En la
+%% segunda expresion la guarda es 'true', en cuyo caso se ejecuta el
+%% proceso 'tell' asociado a ella. En este ejemplo, se ejecutan los dos
+%% 'tell', insertando en el almacen las restricciones 2*a>15 y 2*b<15.
+%% Esto sucede en la misma unidad de tiempo. Por regla general se
+%% cumple que: when true do P==P.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 2 in
+when ( b >= 0 ) do tell (2 * a > 15);  %(1) la guarda b>=0 siempre se cumple.
+when ( true ) do tell (2 * b < 15)     %(2) la guarda 'true' siempre se cumple.
+end

@@ -1,0 +1,12 @@
+%% Programa de ntcc usando 'when'.
+%% Aqui tenemos dos procesos 'when' separados por un punto y coma.
+%% Estos procesos se ejecutan en paralelo. Recuerde dejar un espacio
+%% entre los operadores y los numeros y las variables. Recuerde tambien
+%% que la ultima expresion antes del 'end' no lleva punto y coma.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 2
+in
+when ( b >= 0 ) do tell (2 * a < 15);
+when ( a =< 7 ) do tell (b - 4 = 15)
+end

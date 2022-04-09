@@ -1,0 +1,16 @@
+%% Programa de ntcc usando el operador 'bang' (!).
+%% Ahora ejecute este otro ejemplo y observe los resultados.
+%% En este ejemplo es posible ejecutar los dos procesos 'when',
+%% puesto que no 'colisionan'; sin embargo, la guarda de (1)
+%% se cumple siempre dandole prelacion sobre (2) que solo se
+%% cumple despues de ejecutar (3). Por otro lado, si unicamente
+%% se ejecutan los procesos (2) y (3), comentando (1), entonces,
+%% ?que sucede?.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 12
+in
+bang ( when (b < 31) do tell (2 * a < 15)); % (1) Siempre se cumple
+bang ( when (b < 9) do tell (2 * a < 10));  % (2) Se cumple despues de (3).
+bang (5 8 tell (2 * b < 15))                % (3) Se cumple entre 5=<tsim=<8.
+end

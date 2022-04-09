@@ -1,0 +1,25 @@
+%% Programa de ntcc usando 'sum'.
+%% Este ejemplo es similar al ejemplo 14. En este caso cada proceso
+%% se encuentra vinculado a una variable distinta y se ejecutan por
+%% medio del proceso 'par' al final. Observense los  signos de punto
+%% y coma al final de la definicion de cada proceso. Recuerde que
+%% Una simulacion se termina cuando se agota el tiempo de simulacion
+%% o cuando la cola de procesos queda vacia.
+%% Descomente p2 y el 'par' final y comente el 'par' previo a este,
+%% corra el programa y compare los resultados con los obtenidos en
+%% el ejemplo 14. ?Que nota? ?Encuentra alguna diferencia?
+NtccSim
+begin
+declare a b c d domain = [0#20 0#30 0#40 0#50] tsim = 3
+in 
+p1 = sum ( when ( c >= 5 ) do tell (2 * a < 15)
+	   when ( b =< 8 ) do tell (2 * d < 45)
+	   when ( a =< 20 ) do tell (2 * d < 25));
+%p2 = tell (a + 2 < 15);
+p3 = tell (b - 1 = 7);
+p4 = tell (c >= 5);
+p5 = next ( tell (d >= 15));
+p6 = next ( next ( tell (a =< 12)));
+par (p1 tell (a + 2 < 15) p3 p4 p5 p6)
+%par (p1 p2 p3 p4 p5 p6)
+end

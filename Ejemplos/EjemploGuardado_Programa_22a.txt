@@ -1,0 +1,27 @@
+%% Programa de ntcc usando el operador 'star' (*).
+%% Ahora ejecute este otro ejemplo y observe los resultados.
+%% Este es el operador para la asincronia o la eventualidad acotada.  
+%% Con este operador el subproceso 'tell' se ejecuta una vez, en
+%% cualquier momento, durante la ventana de tiempo para la cual ha
+%% sido definido. En este ejemplo, se puede observar el comportamiento
+%% de los tres posibles casos de este operador: cuando no se especifica
+%% ningun limite de tiempo, como en la expresion (1); cuando se
+%% especifica un limite inferior, como en (2) y cuando se define una
+%% ventana de tiempo, como en (3). En (1) el subproceso 'tell' se
+%% puede ejecutar en cualquier momento durante todo el tiempo de la
+%% simulacion. En (2) el 'tell' se puede ejecutar en cualquier momento
+%% a partir de la unidad de tiempo 5. En la expresion (5) el 'tell'
+%% se puede ejecutar en cualquier momento entre las unidades de tiempo
+%% 5 y 8. Corra el codigo varias veces y mire los resultados, ?que
+%% observa? Ahora comente (1) y descomente (2), corra el codigo varias
+%% veces, ?que observa? Repita este ultimo ejercicio con (2) y (3).
+%% Recuerde que las simulaciones terminan cuando se agota el tiempo
+%% de simulacion o cuando no quedan mas procesos en la cola de ejecucion.
+NtccSim
+begin
+declare a domain = [0#20] tsim = 12
+in
+star ( tell (2 * a < 15))                     % (1) Se cumple siempre.
+%star (5 tell (2 * a < 15))                    % (2) Se cumple despues de 5.
+%star (5 8 tell (2 * a < 15))                  % (3) Se cumple entre 5=<tsim=<8.
+end

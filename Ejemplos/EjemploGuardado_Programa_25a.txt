@@ -1,0 +1,15 @@
+%% Programa de ntcc usando 'sum'.
+%% En el presente ejemplo, el operador 'sum' tiene 0 parametros, esto
+%% equivale a la suma vacia que representa la inactividad; es decir,
+%% el proceso que no hace nada (skip). Esta representacion se corresponde
+%% con el proceso 'omit' en este simulador, o sea sum(0)==omit.
+%% Adicionalmente, se puede verificar que par(sum(0) P)==par(P sum(0))==P.
+%% Corra el presente programa tal como esta, observe el resultado.
+%% Ahora descomente la expresion (1) y corra de nuevo el programa, ?Que
+%% observa ahora?
+NtccSim
+begin
+declare a domain = [0#20] tsim = 2 in
+%next ( tell (2 * a < 15));		% (1) Adiciona 2*a<15 al almacen.
+sum (0)					% (2) No hace nada.
+end

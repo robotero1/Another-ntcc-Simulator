@@ -1,0 +1,47 @@
+%% Programa de ntcc: Controlador de un Robot (Olarte, Rueda y Valencia,
+%% 2013). Este es una adaptacion del ejemplo 4 presentado en "Models
+%% and Emerging Trends of Concurrent Constraint Programming" por Carlos,
+%% Olarte, Camilo Rueda y Frank D. Valencia, Springer Verlag, 2013.
+%% Este ejemplo trata de modelar el controlador de un robot. Suponga
+%% que el controlador de un robot recibe senales del ambiente que le
+%% indican cuando debe girar. Asi pues, la variable 'turn', que puede
+%% ser 0 o 1, determina si el dispositivo tiene que girar (turn=1) o no 
+%% (turn=0). Si turn=1, entonces el dispositivo puede girar a la
+%% izquierda o a la derecha de manera no-determinista, quedando en una
+%% de las posibles direcciones dada por la variable 'dir', definida en
+%% el dominio [1,4]. Cuando dir=1, la direccion correspondiente es
+%% Norte; cuando dir=2, Este; para dir=3, Sur y para dir=4, Oeste (W).
+%% Corra el siguiente codigo varias veces y observe los resultados en
+%% cada ocasion.
+%% NOTA: Este ejemplo NO se ejecuta correctamente, ?por que?
+%% Despues de correr este ejemplo y observar los resultados, vaya al
+%% ejemplo 30b. Note las diferencias en el codigo y explique ?por que
+%% este ejemplo (30a) no es correcto y el siguiente (30b) si?
+NtccSim
+begin
+declare turn dir domain = [0#2 1#4] tsim = 7
+in
+turnr = sum ( when (dir == 1) do next ( tell (dir = 2))
+	      when (dir == 2) do next ( tell (dir = 3))
+	      when (dir == 3) do next ( tell (dir = 4))
+	      when (dir == 4) do next ( tell (dir = 1)));
+turnl = sum ( when (dir == 1) do next ( tell (dir = 4))
+	      when (dir == 2) do next ( tell (dir = 3))
+	      when (dir == 3) do next ( tell (dir = 2))
+	      when (dir == 4) do next ( tell (dir = 1)));
+turn0 = sum ( when (dir == 1) do next ( tell (dir = 1))
+	      when (dir == 2) do next ( tell (dir = 2))
+	      when (dir == 3) do next ( tell (dir = 3))
+	      when (dir == 4) do next ( tell (dir = 4)));
+turnR = sum ( when ( true ) do next ( tell (turn = 0))
+	      when ( true ) do next ( tell (turn = 1))
+	      when ( true ) do next ( tell (turn = 2)));
+robot = bang ( par ( when (turn > 0) do	sum ( when (turn == 1) do turnr
+					      when (turn == 2) do turnl) 
+		     when (turn == 0) do turn0
+		     turnR));
+%% Condiciones iniciales:
+tell (dir = 1);
+tell (turn = 1);
+robot
+end

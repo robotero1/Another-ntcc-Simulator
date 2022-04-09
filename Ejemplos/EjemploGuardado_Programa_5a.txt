@@ -1,0 +1,14 @@
+%% Programa de ntcc usando 'when'.
+%% El operador 'when' pregunta al almacen si se puede deducir
+%% la guarda b>=0. En caso afirmativo, se ejecuta el proceso 'tell';
+%% en caso negativo, no sucede nada. En este ejemplo, se ejecuta el
+%% 'tell', insertando en el almacen la restriccion 2*a<15. Esto
+%% sucede en la primera unidad de tiempo. Observe, no obstante, que
+%% tsim=2, como todos los procesos se ejecutan en la primera unidad
+%% de tiempo, no quedan procesos para la segunda unidad de tiempo,
+%% terminando la simulacion en este punto.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 2 in
+when ( b >= 0 ) do tell (2 * a < 15)
+end

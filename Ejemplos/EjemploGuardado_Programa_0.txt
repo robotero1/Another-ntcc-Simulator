@@ -1,0 +1,6 @@
+%% Estructura general de un programa ntcc.
+NtccSim
+begin
+declare x domain = [0#1] tsim = 1 in
+%% Escriba aqui su codigo.
+end

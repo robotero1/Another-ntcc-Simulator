@@ -1,0 +1,19 @@
+%% Programa de ntcc usando el operador 'star' (*).
+%% Ahora ejecute este otro ejemplo y observe los resultados.
+%% Este ejemplo es similar al ejemplo 21, solo que en la expresion
+%% (3) el 'bang' se ha cambiado por 'star'. Recuerde que este operador
+%% se ejecuta una vez, en cualquier momento, durante la ventana de
+%% tiempo para la cual ha sido definido el proceso.
+%% Corra el codigo varias veces y mire los resultados, ?que observa?
+%% Ahora comente (3) y descomente (4), corra el codigo varias veces,
+%% ?que observa? Repita este ultimo ejercicio con (4) y (5).
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 12
+in
+bang ( when (a < 9) do tell (2 * b = 14));    % (1) Se cumple despues de (2).
+bang ( unless (b < 9) next tell (2 * a < 15));% (2) Se cumple antes que (3).
+star ( tell (2 * b < 15))                     % (3) Se cumple siempre.
+%star (5 tell (2 * b < 15))                    % (4) Se cumple despues de 5.
+%star (5 8 tell (2 * b < 15))                  % (5) Se cumple entre 5=<tsim=<8.
+end

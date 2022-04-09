@@ -1,0 +1,11 @@
+%% Programa de ntcc usando 'par'.
+%% Las expresiones t1 y t2 se ejecutan en paralelo gracias al
+%% operador 'par'. Recuerde que la ultima expresion no lleva punto y
+%% coma.
+NtccSim
+begin
+declare x y domain = [0#10 0#10] tsim = 1 in
+t1 = tell (x = 5);
+t2 = tell (y > 5);
+par (t1 t2)
+end

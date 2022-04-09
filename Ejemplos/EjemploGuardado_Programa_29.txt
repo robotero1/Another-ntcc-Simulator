@@ -1,0 +1,17 @@
+%% Programa de ntcc usando 'bang'.
+%% Este ejemplo simplemente muestra como usar el operador 'bang' para
+%% definir un comportamiento ciclico. La variable 'dir', cuyo dominio
+%% es 0#4, cambia en cada unidad de tiempo segun la regla definida
+%% en 'turnr'. En cada unidad de tiempo la variable 'dir' se incrementa
+%% de uno en uno, iniciando de nuevo el conteo cuando dir=4.
+NtccSim
+begin
+declare dir domain = [1#4] tsim = 35
+in
+turnr = bang ( sum ( when (dir == 1) do next ( tell (dir = 2))
+	      	     when (dir == 2) do next ( tell (dir = 3))
+	      	     when (dir == 3) do next ( tell (dir = 4))
+	      	     when (dir == 4) do next ( tell (dir = 1))));
+tell (dir = 1);
+turnr
+end

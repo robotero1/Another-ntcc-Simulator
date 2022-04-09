@@ -1,0 +1,21 @@
+%% Programa de ntcc usando 'next'.
+%% En este ejemplo, la expresion t1=tell(2a<15) por si sola no
+%% hace nada. Lo mismo sucede con t2, t3 y t4. Para ejecutar una de
+%% las expresiones basta con enunciarla al final, tal como se muestra
+%% en el ejemplo con t4. Tambien se pueden ejecutar una o todas las 
+%% expresiones escribiendolas dentro de un par(). Recuerde que la
+%% expresion final no lleva punto y coma y es la que permite ejecutar
+%% todo el codigo antes de ella. Intente correr el ejemplo cambiando
+%% t4 por t3, t2 o t1 o comente t4 y descomente par(t1 t2 t3 t4).
+%% ?Que sucede?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 5
+in
+t1 = tell (2 * a < 15);
+t2 = next (t1);
+t3 = next (t2);
+t4 = next (t3);
+t4
+%par (t1 t2 t3 t4)
+end

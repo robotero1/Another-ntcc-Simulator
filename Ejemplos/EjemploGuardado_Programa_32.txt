@@ -1,0 +1,63 @@
+%% Programa de ntcc: Contador.
+%% Este ejemplo es una variacion del ejemplo 4 presentado en "Models
+%% and Emerging Trends of Concurrent Constraint Programming" por Carlos,
+%% Olarte, Camilo Rueda y Frank D. Valencia, Springer Verlag, 2013.
+%% En este ejemplo se modela un contador de 00 a 99. Las variables
+%% 'dec' y 'uni' son para las decenas y las unidades respectivamente;
+%% sus dominios estan definidos en el intervalo [0, 9]. Las variables
+%% 'changd' y 'changu', ambas con dominio 0#1, se usan para indicarle
+%% al contador cuando deben cambiar las decenas y cuando deben cambiar
+%% las unidades: si changd==changu=1 las decenas o las unidades se
+%% incrementan en una unidad por cada unidad de tiempo; de lo contrario,
+%% si changd=0 las decenas permanecen iguales y si changu=0 el contador
+%% simplemente retarda en una unidad de tiempo el incremento inicial
+%% de las unidades. Corra el siguiente codigo y verifique los resultados.
+NtccSim
+begin
+declare dec uni changd changu domain = [0#9 0#9 0#1 0#1] tsim = 100 in
+time = bang (
+	    par (
+		 sum ( when (changu == 1) do
+			     sum ( when (uni == 0) do next ( tell (uni = 1))
+				   when (uni == 1) do next ( tell (uni = 2))
+	      		           when (uni == 2) do next ( tell (uni = 3))
+	      	       		   when (uni == 3) do next ( tell (uni = 4))
+	      	       		   when (uni == 4) do next ( tell (uni = 5))
+	      	       		   when (uni == 5) do next ( tell (uni = 6))
+	      	       		   when (uni == 6) do next ( tell (uni = 7))
+	      	       		   when (uni == 7) do next ( tell (uni = 8))
+	      	       		   when (uni == 8) do next ( tell (uni = 9))
+	      	       		   when (uni == 9) do next ( tell (uni = 0)))
+		       when (changu == 0) do next ( tell (changu == 1)))
+		 sum ( when (changd == 1) do
+		 	     sum ( when (dec == 0) do next ( tell (dec = 1))
+	      	       		   when (dec == 1) do next ( tell (dec = 2))
+	      	       		   when (dec == 2) do next ( tell (dec = 3))
+	      	       		   when (dec == 3) do next ( tell (dec = 4))
+	      	       		   when (dec == 4) do next ( tell (dec = 5))
+	      	       		   when (dec == 5) do next ( tell (dec = 6))
+	      	       		   when (dec == 6) do next ( tell (dec = 7))
+	      	       		   when (dec == 7) do next ( tell (dec = 8))
+	      	       		   when (dec == 8) do next ( tell (dec = 9))
+	      	       		   when (dec == 9) do next ( tell (dec = 0)))
+		       when (changd == 0) do
+		 	     sum ( when (dec == 0) do next ( tell (dec = 0))
+	      	       		   when (dec == 1) do next ( tell (dec = 1))
+	      	       		   when (dec == 2) do next ( tell (dec = 2))
+	      	       		   when (dec == 3) do next ( tell (dec = 3))
+	      	       		   when (dec == 4) do next ( tell (dec = 4))
+	      	       		   when (dec == 5) do next ( tell (dec = 5))
+	      	       		   when (dec == 6) do next ( tell (dec = 6))
+	      	       		   when (dec == 7) do next ( tell (dec = 7))
+	      	       		   when (dec == 8) do next ( tell (dec = 8))
+	      	       		   when (dec == 9) do next ( tell (dec = 9))))
+		 sum ( when (uni == 8) do next ( tell (changd = 1))
+	      	       when (uni /= 8) do next ( tell (changd = 0)))
+		 when ( true ) do next ( tell (changu = 1))));
+%% Condiciones iniciales:
+tell (uni = 0);
+tell (dec = 0);
+tell (changu = 1);
+tell (changd = 0);
+time
+end

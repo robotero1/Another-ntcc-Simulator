@@ -1,0 +1,40 @@
+%% Adaptacion de ejemplo 4 (Controller for a Robot) en (Olarte,
+%% Valencia y Rueda, 2013). En esta adaptacion, la variable 'turn',
+%% definida en el intervalo [0, 2], indica si el robot no gira, 0;
+%% si gira a la derecha, 1, o si gira a la izquierda, 2. La variable
+%% 'dir', esta definida en el intervalo [1, 4], en el que 1
+%% corresponde a la direccion Norte; 2, a la direccion Este; 3 a Sur
+%% y 4 a Oeste (W). Si turn==0, entoces se activa el proceso 'turn0',
+%% en el que dado dir==i, entonces en la siguiente unidad de tiempo
+%% dir==i (no hay cambio). Si turn==1, se activa 'turnr', entonces
+%% dado dir==i, en la siguiente unidad de tiempo se tendra que
+%% dir==(i mod 4)+1. Si turn==2, entonces se activa 'turnl', por
+%% lo que si dir==i, en la siguiente unidad de tiempo se tendra
+%% dir==((4-i) mod 4)+1.
+NtccSim
+begin
+declare turn dir domain = [0#2 1#4] tsim = 15
+in
+turnr = sum ( when (dir == 1) do next ( tell (dir = 2))
+	      when (dir == 2) do next ( tell (dir = 3))
+	      when (dir == 3) do next ( tell (dir = 4))
+	      when (dir == 4) do next ( tell (dir = 1)));
+turnl = sum ( when (dir == 1) do next ( tell (dir = 4))
+	      when (dir == 2) do next ( tell (dir = 3))
+	      when (dir == 3) do next ( tell (dir = 2))
+	      when (dir == 4) do next ( tell (dir = 1)));
+turn0 = sum ( when (dir == 1) do next ( tell (dir = 1))
+	      when (dir == 2) do next ( tell (dir = 2))
+	      when (dir == 3) do next ( tell (dir = 3))
+	      when (dir == 4) do next ( tell (dir = 4)));
+robot = bang ( par ( when (turn > 0) do
+	  		    sum ( when (turn == 1) do turnr
+				  when (turn == 2) do turnl)
+		     when (turn == 0) do turn0
+		     sum ( when true do next ( tell (turn == 0))
+			   when true do next ( tell (turn == 1))
+			   when true do next ( tell (turn == 2)))));
+tell (dir = 1);
+tell (turn = 1);
+robot
+end

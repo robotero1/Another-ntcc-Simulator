@@ -1,0 +1,15 @@
+%% Programa de ntcc usando el operador 'bang' (!).
+%% Ahora ejecute este otro ejemplo y observe los resultados.
+%% En este ejemplo es posible ejecutar todos los procesos
+%% 'when', puesto que no 'interfieren' entre si. El proceso (1)
+%% se cumple despues de (2) que solo se cumple despues de ejecutar
+%% (3) y este solo se cumple entre las 5 las 8 unidades de tiempo.
+%% ?Que observa? ?Como se puede explicar esto?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 12
+in
+bang ( when (a < 9) do tell (2 * b = 14));  % (1) Se cumple despues de (2).
+bang ( when (b < 9) do tell (2 * a < 15));  % (2) Se cumple despues de (3).
+bang (5 8 tell (2 * b < 15))                % (3) Se cumple entre 5=<tsim=<8.
+end

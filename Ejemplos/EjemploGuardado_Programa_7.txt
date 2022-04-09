@@ -1,0 +1,16 @@
+%% Programa de ntcc usando 'when'.
+%% Aqui los procesos t1 y t2 solo se ejecutan si las guardas
+%% b>=0 y a=<7 se cumplen en la primera unidad de tiempo. Note que
+%% el tiempo de simulacion 'tsim' es 2, pero la simulacion se
+%% completa en la primera unidad de tiempo. Una simulacion se
+%% termina cuando se agota el tiempo de simulacion o cuando la
+%% cola de procesos queda vacia.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 2
+in
+t1 = tell (2 * a < 15);
+t2 = tell (b - 4 = 15);
+when ( b >= 0 ) do t1 ;
+when ( a =< 7 ) do t2
+end

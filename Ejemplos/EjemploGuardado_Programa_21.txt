@@ -1,0 +1,24 @@
+%% Programa de ntcc usando el operador 'unless'.
+%% Ahora ejecute este otro ejemplo y observe los resultados.
+%% En este ejemplo es posible ejecutar todos los procesos.
+%% El proceso (1) se cumple siempre que a<9, pero esto solo es
+%% posible cuando se ejecute (2) cuya guarda se cumple siempre
+%% que no se cumpla (3) y esto solo sucede entre las 5 las 8
+%% unidades de tiempo. Recuerde que los procesos 'when' y 'unless'
+%% primero verifican la guarda antes de ejecutar sus correspondientes
+%% subprocesos y que los procesos 'tell' tienen prelacion sobre los
+%% demas procesos, siempre que no esten condicionados por otros
+%% procesos como en el caso la expresion (1). En este caso, en (1), el
+%% 'tell' solo se ejecuta despues de que se haya verificado la guarda.
+%% Por el contrario, en (2) la guarda se verifica en la presente
+%% unidad de tiempo, pero el 'tell' se ejecuta con prelacion en la
+%% siguiente unidad de tiempo. ?Que observa? ?Como se puede explicar
+%% este comportamiento?
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 12
+in
+bang ( when (a < 9) do tell (2 * b = 14));     % (1) Se cumple despues de (2).
+bang ( unless (b < 9) next tell (2 * a < 15)); % (2) Se cumple antes que (3).
+bang (5 8 tell (2 * b < 15))                   % (3) Se cumple entre 5=<tsim=<8.
+end

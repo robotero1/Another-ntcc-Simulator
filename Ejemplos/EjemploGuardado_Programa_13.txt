@@ -1,0 +1,22 @@
+%% Programa de ntcc usando 'sum'.
+%% Este es el operador del no-determinismo. Cada 'when' consulta si se
+%% puede deducir su guarda del almacen. El operador selecciona, de manera
+%% no-determinista, que proceso se ejecuta de aquellos cuya guarda se
+%% cumpla. Los demas precluyen. Todo esto sucede en la misma unidad de
+%% tiempo. Los procesos por fuera de sum() se ejecutan en la misma unidad
+%% de tiempo, excepto el proceso precedido por un 'next' que se ejecuta
+%% en la siguiente unidad de tiempo. Observese tambien que los procesos
+%% 'tell' tienen prelacion sobre los demas procesos en la misma unidad de
+%% tiempo.
+NtccSim
+begin
+declare a b c d domain = [0#20 0#30 0#40 0#50] tsim = 2
+in 
+	par ( 	sum ( 	when ( c >= 5 ) do tell (2 * a < 15)
+			when ( b =< 8 ) do tell (2 * d < 45)
+			when ( a =< 20 ) do tell (2 * d < 25))
+		tell (a + 2 < 15)
+		tell (b - 1 = 7)
+		tell (c >= 5)
+		next ( tell (d >= 15)))
+end

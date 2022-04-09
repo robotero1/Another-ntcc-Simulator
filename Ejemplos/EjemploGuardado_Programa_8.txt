@@ -1,0 +1,16 @@
+%% Programa de ntcc usando 'when'.
+%% Note que el punto y coma no esta separado del parentesis,
+%% pero si de las variables t1 y t2. Asegurese que los punto y
+%% coma siempre esten separados de las variables y de los numeros.
+%% Tenga en cuenta que el orden de las instrucciones si importa
+%% con el operador punto y coma.
+NtccSim
+begin
+declare a b domain = [0#20 0#30] tsim = 2
+in
+t1 = tell (2 * a < 15);
+t2 = tell (b - 4 = 15);
+t3 = when ( b >= 0 ) do t1 ;
+t4 = when ( a =< 7 ) do t2 ;
+par (t3 t4)
+end

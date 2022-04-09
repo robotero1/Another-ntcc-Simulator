@@ -1,0 +1,14 @@
+%% Programa de ntcc usando 'hide'.
+%% Este programa es identico al ejemplo 26a. Su diferencia
+%% radica en la posicion del proceso tell(x>=5). En este caso,
+%% dicha instruccion se encuentra en la linea final antes del
+%% 'end'. Ejecute el codigo y observe el resultado. Comparelo
+%% con el resultado del ejercicio 26a.
+NtccSim
+begin
+declare x y z domain = [0#10 0#10 0#10] tsim = 5
+in
+when (x >= 5) do tell (y >= 5);
+hide (x when (x =< 4) do tell (z =< 5));
+tell (x >= 5)
+end

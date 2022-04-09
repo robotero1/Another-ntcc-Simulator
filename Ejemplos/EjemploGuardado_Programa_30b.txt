@@ -1,0 +1,52 @@
+%% Programa de ntcc: Controlador de un Robot (Olarte, Rueda y Valencia,
+%% 2013). Este es una adaptacion del ejemplo 4 presentado en "Models
+%% and Emerging Trends of Concurrent Constraint Programming" por Carlos,
+%% Olarte, Camilo Rueda y Frank D. Valencia, Springer Verlag, 2013.
+%% Este ejemplo trata de modelar el controlador de un robot. Suponga
+%% que el controlador de un robot recibe senales del ambiente que le
+%% indican cuando debe girar. Asi pues, la variable 'turn', que puede
+%% ser 0 o 1, determina si el dispositivo tiene que girar (turn=1) o no 
+%% (turn=0). Si turn=1, entonces el dispositivo puede girar a la
+%% izquierda o a la derecha de manera no-determinista, quedando en una
+%% de las posibles direcciones dada por la variable 'dir', definida en
+%% el dominio [1,4]. Cuando dir=1, la direccion correspondiente es
+%% Norte; cuando dir=2, Este; para dir=3, Sur y para dir=4, Oeste (W).
+%% Corra el siguiente codigo varias veces y observe los resultados en
+%% cada ocasion.
+NtccSim
+begin
+declare turn dir domain = [0#1 1#4] tsim = 17
+in
+robot = bang (
+	      par (
+		   when (turn > 0) do
+			 sum ( when ( true ) do
+				     sum ( when (dir == 1) do
+						 next ( tell (dir = 2))
+	      				   when (dir == 2) do
+						 next ( tell (dir = 3))
+	      				   when (dir == 3) do
+						 next ( tell (dir = 4))
+	      				   when (dir == 4) do
+						 next ( tell (dir = 1)))
+			       when ( true ) do
+				     sum ( when (dir == 1) do
+						 next ( tell (dir = 4))
+	      				   when (dir == 4) do
+						 next ( tell (dir = 3))
+	      				   when (dir == 3) do
+						 next ( tell (dir = 2))
+	      				   when (dir == 2) do
+						 next ( tell (dir = 1))))
+		   when (turn == 0) do
+			 sum ( when (dir == 1) do next ( tell (dir = 1))
+			       when (dir == 2) do next ( tell (dir = 2))
+			       when (dir == 3) do next ( tell (dir = 3))
+	      		       when (dir == 4) do next ( tell (dir = 4)))
+		   sum ( when ( true ) do next ( tell (turn = 0))
+	      		 when ( true ) do next ( tell (turn = 1)))));
+%% Condiciones iniciales:
+tell (dir = 1);
+tell (turn = 1);
+robot
+end

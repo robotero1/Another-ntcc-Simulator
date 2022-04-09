@@ -1,0 +1,15 @@
+%% Programa de ntcc usando 'tout'.
+%% Este operador permite simular la expiracion de un proceso no
+%% activo. Dado un conjunto de procesos, este operador selecciona
+%% de manera no-determinista un proceso de aquellos cuya guarda no
+%% se puede inferir en la unidad de tiempo actual para ser ejecutado
+%% en la siguiente unidad de tiempo. Corra el siguiente programa y
+%% observe los resultados.
+NtccSim
+begin
+declare x y z domain = [0#10 0#10 0#10] tsim = 5
+in
+tout ( unless (x > 10) next tell (x - 1 == 3)
+       unless (x < 10) next tell (y >= 4)
+       unless (y == 4) next tell (z < 7))
+end

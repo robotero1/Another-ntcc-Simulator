@@ -1,0 +1,16 @@
+%% Programa de ntcc usando 'hide'.
+%% Este es una adaptacion del ejemplo 6.1.1 de (Valencia, 2002).
+%% Static scoping. La variable 'y' despues del 'tell' es global,
+%% mientras que la variable 'y' despues de 'hide' es local, diferente
+%% de la primera. Por lo tanto, las dos variables no se ligan al
+%% desplegar 'q1' en los llamados recursivos. Como consecuencia,
+%% el proceso tell(z=<5) no se ejecuta en las unidades de tiempo
+%% posteriores.
+NtccSim
+begin
+declare x y z domain = [0#10 0#10 0#10] tsim = 5
+in
+q1 = par ( tell (y = 1)
+	   next ( hide (y par (q1 when (y == 1) do tell (z =< 5)))));
+q1
+end

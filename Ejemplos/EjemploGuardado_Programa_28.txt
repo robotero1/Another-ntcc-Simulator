@@ -1,0 +1,14 @@
+%% Programa de ntcc usando 'bang'.
+%% En este ejemplo la variable 'turn', definida en el intervalo [0, 2],
+%% cambia su valor en la siguiente unidad de tiempo, de manera
+%% no-determinista, siendo a veces turn=0, turn=1 o turn=2.
+NtccSim
+begin
+declare turn domain = [0#2] tsim = 10
+in
+turnR = bang ( sum ( when ( true ) do next ( tell (turn = 0))
+	      	     when ( true ) do next ( tell (turn = 1))
+	      	     when ( true ) do next ( tell (turn = 2))));
+tell (turn = 1);
+turnR
+end

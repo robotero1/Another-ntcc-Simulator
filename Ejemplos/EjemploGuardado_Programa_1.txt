@@ -1,0 +1,10 @@
+%% Programa de ntcc usando 'tell'.
+%% El operador 'tell' inserta en el almacen la restriccion
+%% x=5. Esto sucede en la unidad de tiempo actual.
+%% Recuerde que una restriccion puede ser una igualdad o una desigualdad.
+%% Trate que las restricciones sean lo mas sencillas posible.
+NtccSim
+begin
+declare x domain = [0#10] tsim = 1 in
+tell (x = 5)
+end

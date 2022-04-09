@@ -1,0 +1,28 @@
+%% Programa de ntcc usando 'hide'.
+%% Este es una adaptacion del ejemplo 6.1.1 de (Valencia, 2002).
+%% Static scoping. La variable 'y' despues del 'tell' es global,
+%% mientras que la variable 'y' despues de 'hide' es local, diferente
+%% de la primera. Por lo tanto, las dos variables no se ligan al
+%% desplegar 'q1' en los llamados recursivos. Como consecuencia,
+%% el proceso tell(z=<5) no se ejecuta en las unidades de tiempo
+%% posteriores.
+NtccSim
+begin
+declare turn dir domain = [0#1 1#4] tsim = 5
+in
+turnr = sum ( when (dir == 1) do next ( tell (dir = 2))
+	      when (dir == 2) do next ( tell (dir = 3))
+	      when (dir == 3) do next ( tell (dir = 4))
+	      when (dir == 4) do next ( tell (dir = 1)));
+turnl = sum ( when (dir == 1) do next ( tell (dir = 4))
+	      when (dir == 2) do next ( tell (dir = 3))
+	      when (dir == 3) do next ( tell (dir = 2))
+	      when (dir == 4) do next ( tell (dir = 1)));
+robot = par ( next (robot)
+	      sum ( when (turn == 1) do turnr when (turn == 1) do turnl))
+	      sum ( when (dir == 1) do unless (turn == 1) next (dir = 1)
+		    when (dir == 2) do unless (turn == 1) next (dir = 2)
+		    when (dir == 3) do unless (turn == 1) next (dir = 3)
+		    when (dir == 4) do unless (turn == 1) next (dir = 4)));
+tell (dir = 1)
+end
