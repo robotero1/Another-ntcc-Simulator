@@ -1,7 +1,7 @@
 %% Adaptacion de ejemplo 4 (Controller for a Robot) en (Olarte,
 %% Valencia y Rueda, 2013). En esta adaptacion, la variable 'turn',
 %% definida en el intervalo [0, 2], indica si el robot no gira, 0;
-%% si gira a la derecha, 1, o si gira a la izquierda, 2. La variable
+%% si gira a la derecha, 1; o si gira a la izquierda, 2. La variable
 %% 'dir', esta definida en el intervalo [1, 4], en el que 1
 %% corresponde a la direccion Norte; 2, a la direccion Este; 3 a Sur
 %% y 4 a Oeste (W). Si turn==0, entoces se activa el proceso 'turn0',
