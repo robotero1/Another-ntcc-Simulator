@@ -75,4 +75,5 @@ Los siguientes trabajos son el sustento teórico y práctico del proyecto.
 7. Toro-Bermúdez, M., Rueda, C., Agón, C., & Assayag, G. (2009). Ntccrt: A concurrent constraint framework for real-time interaction.
 8. Müller, T. (2001). Constraint propagation in Mozart. PhD Dissertation. Saarland University, Saarbruken.
 9. Smolka, G. (1995). The Oz programming model. In Computer science today (pp. 324-343). Springer, Berlin, Heidelberg.
+10. Wichmann, B. A., & Hill, I. D. (1982). Algorithm AS 183: An efficient and portable pseudo-random number generator. Journal of the Royal Statistical Society. Series C (Applied Statistics), 31(2), 188-190.
 
