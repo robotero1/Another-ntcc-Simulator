@@ -1,6 +1,8 @@
 %% Programa de ntcc usando 'par'.
 %% En este caso el operador 'par' hace explicita la ejecucion en
-%% paralelo de los tres procesos 'tell'.
+%% paralelo de los tres procesos 'tell'. Recuerde dejar un espacio
+%% entre los operadores y los simbolos de agrupacion, variables y
+%% numeros.
 NtccSim
 begin
 declare x y z domain = [0#10 0#10 0#10] tsim = 1
