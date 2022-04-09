@@ -4,9 +4,9 @@
 %% Dado un conjunto de procesos, este operador selecciona de manera
 %% no-determinista un proceso de aquellos cuya guarda se puede inferir
 %% en la unidad de tiempo actual para ser ejecutado en la misma unidad
-%% de tiempo. Sin embargo, cuando la guarda es 'true' la eleccion no-
-%% determinista se simula mediante un aleatorio; de manera que si
-%% corre el mismo programa varias veces, es posible que vea un
+%% de tiempo. Sin embargo, cuando mas de una guarda se cumple, la
+%% eleccion no-determinista se simula mediante un aleatorio; de manera
+%% que si corre el mismo programa varias veces, es posible que vea un
 %% resultado diferente cada vez. Corra el siguiente programa varias
 %% veces y observe cada resultado.
 NtccSim
