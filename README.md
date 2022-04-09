@@ -56,14 +56,23 @@ Todos los ejemplos, que están contenidos en la carpeta 'Ejemplos', fueron ejecu
 
 #### Licencia:
 
-El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia `BSD`, o similar, es suficiente. Téngase en cuenta que el software aquí presentado es un ejercicio puramente académico, puede contener errores y, por lo tanto, el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso directo o indirecto.
+El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia `BSD`, o similar, es suficiente. Téngase en cuenta que el software aquí presentado es un ejercicio puramente académico, puede contener errores y, por lo tanto, el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso directo o indirecto, presente o futuro.
 
 #### Agradecimientos:
 
 El autor agradece la ayuda de todos aquellos que le guiaron en la construcción de este simulador. Especiales gracias a los profesores Mauricio Toro Bermúdez y Gerardo M. Sarria por sus aportes y guía en el desarrollo de este proyecto. También agradece a los profesores Camilo Rueda y Carlos Olarte que, en su momento, con sus comentarios y críticas, perfilaron el camino de este proyecto. El apoyo moral del profesor Ciro Jaramillo M., también fue vital para no desfallecer. Sobra mencionar también a mi hijo Santiago y a toda mi familia por su apoyo.
 
 #### Bibliografía:
-1. Valencia, (2002)
-2. Olarte, Rueda y Valencia (2013)
-3. [Van Roy y Haridi (2004)](https://www.info.ucl.ac.be/~pvr/book.html)
-- ...
+
+Los siguientes trabajos son el sustento teórico y práctico del proyecto.
+
+1. Valencia, F. D., (2002). Temporal Concurrent Constraint Programming. PhD Dissertation. University of Aarhus.
+2. Olarte, C., Rueda, C. y Valencia, F. D. (2013). Models and Emerging Trends of Concurrent Constraint Programming. Constraints, Springer Verlag.
+3. [Van Roy, P. y Haridi, S. (2004). Concepts, Techniques, and Models of Computer Programming. The MIT Press.](https://www.info.ucl.ac.be/~pvr/book.html)
+4. Arbeláez, A., Gutiérrez, J., and Pérez, J. A. (2006). Timed concurrent constraint programming in systems biology. Newsletter of the ALP 19(4).
+5. Schulte, C. (Ed.). (2002). Programming constraint services: High-level programming of standard and new constraint services. Berlin, Heidelberg: Springer Berlin Heidelberg.
+6. Bermúdez, M. T., Pérez, J., & Rueda, C. (2009). Towards a correct and efficient implementation of simulation and verification tools for Probabilistic ntcc (Draft).
+7. Toro-Bermúdez, M., Rueda, C., Agón, C., & Assayag, G. (2009). Ntccrt: A concurrent constraint framework for real-time interaction.
+8. Müller, T. (2001). Constraint propagation in Mozart. PhD Dissertation. Saarland University, Saarbruken.
+9. Smolka, G. (1995). The Oz programming model. In Computer science today (pp. 324-343). Springer, Berlin, Heidelberg.
+
