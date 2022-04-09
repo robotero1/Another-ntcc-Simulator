@@ -48,7 +48,7 @@ La herramienta de simulación tampoco soporta la verificación de los programas 
 Para ejecutar el programa primero asegúrese de tener instalado [Mozart 1.4.0 y Oz 3](https://mozart.github.io/
 ), preferiblemente. Luego, se debe descargar (o clonar) la carpeta del simulador con los siguientes archivos (todos en la misma carpeta): `Aleatorio.oz, LexerParser.oz, Interpreter.oz, NtccSimulator.oz, TreeBuilder.oz` y `TextEditor.oz`. También puede descargar la carpeta con los ejemplos.
 
-Una vez descargados los archivos en una misma carpeta, abrir `TextEditor.oz` en el `Emacs` y ejecutarlo con la opción `Feed Buffer`. Inmediatamente se abrirá el editor de texto ya mencionado. Aquí podrá escribir el código `ntcc` que desee o cargarlo desde archivo y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
+Una vez descargados los archivos en una misma carpeta, abrir `TextEditor.oz` en el `Emacs` y ejecutarlo con la opción `Feed Buffer` (press Ctrl+. Ctrl+B). Inmediatamente se abrirá el editor de texto ya mencionado. Aquí podrá escribir el código `ntcc` que desee o cargarlo desde archivo y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
 
 ##### Nota:
 
