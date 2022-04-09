@@ -50,13 +50,17 @@ Para ejecutar el programa primero asegúrese de tener instalado [Mozart 1.4.0 y 
 
 Una vez descargados los archivos en una misma carpeta, abrir `TextEditor.oz` en el `Emacs` y ejecutarlo con la opción `Feed Buffer`. Inmediatamente se abrirá el editor de texto ya mencionado. Aquí podrá escribir el código `ntcc` que desee o cargarlo desde archivo y simularlo siguiendo las instrucciones y ejemplos provistos con el programa.
 
+##### Nota:
+
+Todos los ejemplos, que están contenidos en la carpeta 'Ejemplos', fueron ejecutados en una Acer Aspire 4315, con procesador Intel Celeron 560 a 2,13 GHz, 2,00 GB de memoria y sistema operativo Windows 7 Ultimate de 32 bits.
+
 #### Licencia:
 
-El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia `BSD` es suficiente. Téngase en cuenta que el software aquí presentado es un ejercicio puramente académico, puede contener errores, y por lo tanto el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso, directo o indirecto.
+El conjunto de archivos que componen el simulador son de libre uso y libres de cargo. Si por algún motivo se requiere de alguna formalidad el acuerdo de licencia `BSD`, o similar, es suficiente. Téngase en cuenta que el software aquí presentado es un ejercicio puramente académico, puede contener errores y, por lo tanto, el autor no ofrece ningún tipo de garantía sobre el mismo o sobre su uso directo o indirecto.
 
 #### Agradecimientos:
 
-El autor agradece la ayuda de todos aquellos que le guiaron en la construcción de este simulador. Especiales gracias a los profesores Mauricio Toro Bermúdez y X por sus aportes y guía. También agradece a los profesores X y X que, en su momento, con sus comentarios y críticas, perfilaron el camino de este proyecto. El apoyo moral del profesor X, también fue vital para no desfallecer.
+El autor agradece la ayuda de todos aquellos que le guiaron en la construcción de este simulador. Especiales gracias a los profesores Mauricio Toro Bermúdez y Gerardo M. Sarria por sus aportes y guía en el desarrollo de este proyecto. También agradece a los profesores Camilo Rueda y Carlos Olarte que, en su momento, con sus comentarios y críticas, perfilaron el camino de este proyecto. El apoyo moral del profesor Ciro Jaramillo M., también fue vital para no desfallecer. Sobra mencionar también a mi hijo Santiago y a toda mi familia por su apoyo.
 
 #### Bibliografía:
 1. Valencia, (2002)
