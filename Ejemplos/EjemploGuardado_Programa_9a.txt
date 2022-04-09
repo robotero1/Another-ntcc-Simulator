@@ -5,8 +5,9 @@
 %% en el ejemplo con t4. Tambien se pueden ejecutar una o todas las 
 %% expresiones escribiendolas dentro de un par(). Recuerde que la
 %% expresion final no lleva punto y coma y es la que permite ejecutar
-%% todo el codigo antes de ella. Intente correr el ejemplo cambiando
-%% t4 por t3, t2 o t1 o comente t4 y descomente par(t1 t2 t3 t4).
+%% todo el codigo antes de ella. En este caso, la expresion t1 se
+%% ejecuta en la cuarta unidad de tiempo. Intente correr el ejemplo
+%% cambiando t4 por t3, t2 o t1 o comente t4 y descomente par(t1 t2 t3 t4).
 %% ?Que sucede?
 NtccSim
 begin
