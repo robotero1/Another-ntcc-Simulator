@@ -3,7 +3,7 @@ This is just another ntcc simulator.
 
 Autor: Rodrigo Botero Ibarra
 
-Sin más pretensiones que la de aprender, propongo esta versión particular de simulador para el cálculo de procesos `ntcc` (non-deterministic temporal concurrent constraint) \[1, 2\]. Esta herramienta fue desarrollada completamente en `Mozart-Oz` \[3\]. No se trata de un trabajo riguroso, tampoco único, es solo un ejercicio académico que, como tal, puede estar sujeto a errores.
+Sin más pretensiones que la de aprender, propongo esta versión particular de simulador para el cálculo de procesos `ntcc` (non-deterministic temporal concurrent constraint) \[1, 2, 4, 6, 7\]. Esta herramienta fue desarrollada completamente en `Mozart-Oz` \[3, 5, 8, 9\]. No se trata de un trabajo riguroso, tampoco único, es solo un ejercicio académico que, como tal, puede estar sujeto a errores.
 
 #### Características:
 
