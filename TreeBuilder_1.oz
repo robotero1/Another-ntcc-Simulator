@@ -144,22 +144,3 @@ end
 
 
 
-% declare L R
-% proc {ToBinary PTree PTl PTr}
-%    proc {RecCycle Rec1 Rec2 N R}
-%       if N=<{Record.width Rec2} then
-% 	 Rn={Record.adjoinAt Rec1 N Rec2.(N+1)} in {RecCycle Rn Rec2 N+1 R}
-%       else R=Rec1
-%       end
-%    end
-%    R1={Record.make {Record.label PTree} nil}
-%    R2={Record.subtract PTree 1} in
-%    PTl={Record.adjoinAt R1 1 PTree.1}
-%    PTr={RecCycle R1 R2 1}
-% end
-% {ToBinary var(w x y z) L R}
-% {Browse L#R#R.1}
-% %{Browse {Record.foldR var(w x y z) {ToBinary var(w x y z) L R}}}
-%===================================================================%
-
-
